@@ -50,3 +50,31 @@ longestWord(str);
 
 // // // // //
 
+//Have the function letterChanges(str) take the str parameter being passed and modify it using the following algorithm. Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string. 
+
+function letterChanges(str){
+    str = str.toLowerCase();
+	var res = [];
+	var code = 0;
+	for(var i = 0; i < str.length; i++){
+	    if(str.charCodeAt(i) >= 97 && str.charCodeAt(i) <= 121){
+			code = str.charCodeAt(i)+1;
+			if(code === 101 || code === 105 || code === 111 || code === 117){
+			    res.push(String.fromCharCode(code).toUpperCase());
+			} else {
+			    res.push(String.fromCharCode(code));
+			}
+		} else if(str[i] === " "){
+			res.push(str[i]);
+		} else if(str.charCodeAt(i) === 122){
+			res.push(String.fromCharCode(97).toUpperCase());
+		}
+	}
+	res = res.join('');
+	return res;
+}
+
+var str = "my name";
+
+letterChanges(str);
+// returns --> "nz Obnf"
