@@ -78,3 +78,21 @@ var str = "my name";
 
 letterChanges(str);
 // returns --> "nz Obnf"
+
+// // // // //
+
+// Have the function simpleAdding(num) add up all the numbers from 1 to num. For the test cases, the parameter num will be any number from 1 to 1000. 
+
+function simpleAdding(num){
+	var sum = 0;
+	for(var i = 1; i <= num; i++){
+		// console.log(i);
+		sum = sum + i;
+	}
+	return sum;
+}
+
+simpleAdding(4);
+// returns --> 10
+
+// // // // //
