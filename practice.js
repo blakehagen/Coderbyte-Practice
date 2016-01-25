@@ -128,7 +128,7 @@ function isPalindrome(word) {
         return true;
     }
     return false;
-}
+};
 
 // // // // // // // //
 
@@ -142,4 +142,51 @@ function addOne(arrayOfNumbers) {
         return a + b;
     })
     return res;
-}
+};
+// // //
+
+// EXPONENT //
+
+function power(base, exponent) {
+    if (exponent === 0) {
+        return 1;
+    }
+    else {
+        return base * power(base, exponent - 1);
+    }
+};
+
+
+// // // // //
+
+// FIND IF ITEM IS IN ARRAY //
+
+function findInArray(arr, itemToFind) {
+    if (arr.indexOf(itemToFind) === -1) {
+        return false;
+    }
+    return true;
+};
+
+// // // //
+
+//Write a function below called "oddsAndEvens" that loops through a parameter "nums" (an array).
+//for each number in the given array, if it is even, it is added to the evens array, if the number is odd, is added to the odds array.
+
+var evens = []; // Do not edit this line.
+var odds = []; // Do not edit this line.
+
+//code here
+
+function oddsAndEvens(numsArr) {
+    numsArr.map(function (e) {
+        if (e % 2 === 0) {
+            evens.push(e);
+        } else {
+            odds.push(e)
+        }
+    })
+    console.log(evens);
+    console.log(odds);
+    return [evens, odds];
+};
