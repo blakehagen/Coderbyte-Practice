@@ -173,8 +173,8 @@ function findInArray(arr, itemToFind) {
 //Write a function below called "oddsAndEvens" that loops through a parameter "nums" (an array).
 //for each number in the given array, if it is even, it is added to the evens array, if the number is odd, is added to the odds array.
 
-var evens = []; // Do not edit this line.
-var odds = []; // Do not edit this line.
+var evens = [];
+var odds = []; 
 
 //code here
 
@@ -190,3 +190,100 @@ function oddsAndEvens(numsArr) {
     console.log(odds);
     return [evens, odds];
 };
+
+// // // // // // //
+
+// Create a function called 'reversedLooper' that when passed an array will loop through it backwards and subtract 2 from the last element, 1 from the second to last, 0 from to the third to last, add one to the fourth to last, add 2 to the fifth to last, etc. until it reaches the front of the array.  Return the list when you are done
+
+// Code Here
+
+function reversedLooper(numsArr) {
+    var counter = -2;
+    for (var i = numsArr.length - 1; i >= 0; i--) {
+        numsArr[i] = numsArr[i] + counter;
+        counter++;
+    }
+    return numsArr;
+};
+
+// // // // // // // // // // // //
+
+//Write a function called 'maker' that creates an array and fills that array with numbers 1 to 25, then returns the array.
+
+// Code Here
+
+function maker() {
+    var newArr = [];
+    for (var i = 1; i < 26; i++) {
+        newArr.push(i);
+    }
+    return newArr;
+};
+
+// // //
+//Below is some code that adds a set of random numbers to both arr1 and arr2.
+var num1 = Math.floor(Math.random() * (30 - 0) + 0);
+var num2 = Math.floor(Math.random() * (30 - 0) + 0);
+var arr1 = [];
+var arr2 = [];
+for (var i = 0; i < num1; i++) {
+    arr1.push(i);
+}
+for (var i = 0; i < num2; i++) {
+    arr2.push(i);
+}
+
+//Write a function called 'longer' that is given arr1 and arr2 as its only arguments and returns the array that is longer.
+
+// Code Here
+function longer(arr1, arr2) {
+    if (arr1.length > arr2.length) {
+        return arr1;
+    } else if (arr2.length > arr1.length) {
+        return arr2
+    }
+}; 
+
+// // // // // // // // //
+// Create a function called evenFinder that takes an array as an argument and returns an array with all of the odd numbers removed. 
+
+// Code Here
+
+var myArray = [];
+
+function evenFinder(arr) {
+    var res = [];
+    arr.map(function (e) {
+        if (e % 2 === 0) {
+            res.push(e);
+        }
+    })
+    return res;
+}
+
+// // // // //
+//Write a function called removeItem that is given two arguments, the first is an array called myGroceryList, and the second is an item to remove from myGroceryList. If the second argument (the item to remove) matches an item in myGroceryList, remove that item from the your grocery list and return the new, updated grocery list. 
+
+//Code Here
+function removeItem(myGroceryList, itemToRemove) {
+    for (var i = 0; i < myGroceryList.length; i++) {
+        if (myGroceryList[i] === itemToRemove) {
+            myGroceryList.splice(i, 1);
+            i--;
+        }
+    }
+    return myGroceryList;
+}
+  
+//Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list. If the item is already in the grocery list, do not add it a second time. If it's not in the list, then add it and return the new list.
+
+//Code Here
+function addItem(myGroceryList, itemToAdd) {
+    for (var i = 0; i < myGroceryList.length; i++) {
+        if (myGroceryList[i] === itemToAdd) {
+            return myGroceryList;
+        }
+    }
+    myGroceryList.push(itemToAdd);
+    return myGroceryList;
+}
