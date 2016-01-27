@@ -329,3 +329,106 @@ function sum(x, y) {
 }
 
 // // // // // // // // // // // // // 
+//Write a function called longest that takes in our sentence variable, and returns the longest word in that sentence.
+var sentence = "Dev Mountain is the best"
+
+function longest(sentence) {
+    var sentenceArr = sentence.split(' ');
+    var letterCount = 0;
+    var longestWord;
+    for (var i = 0; i < sentenceArr.length; i++) {
+        if (sentenceArr[i].length > letterCount) {
+            letterCount = sentenceArr[i].length;
+            longestWord = sentenceArr[i];
+        }
+    }
+    return longestWord;
+}
+
+// // // // // // // // / //
+//Write a function called capitalize that takes in the myPoem variable and capitalizes every word 
+var myPoem = 'What is a jQuery but a misunderstood object?';
+
+function capitalizeWords(sentence) {
+    var res = [];
+    var sentArr = sentence.split(' ');
+    for (var i = 0; i < sentArr.length; i++) {
+        res.push(sentArr[i].charAt(0).toUpperCase() + sentArr[i].slice(1));
+    }
+    return res.join(' ');
+}
+
+// // // // // // // // // // //
+//Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in that string.
+var theOdyssey = "function expression or function declaration? Tis an obvious choice";
+
+function vowelCounter1(string) {
+    var arr = string.toLowerCase().split('');
+    var vowelCount = 0;
+    for (var i = 0; i < arr; i++) {
+        if (arr[i] === 'a' || arr[i] === 'e' || arr[i] === 'i' || arr[i] === 'o' || arr[i] === 'u') {
+            vowelCount++;
+        }
+    }
+    return vowelCount;
+}
+
+// OR 
+
+var vowels = {
+    a: true,
+    e: true,
+    i: true,
+    o: true,
+    u: true
+};
+
+function vowelCounter2(str, hash) {
+    var counter = 0;
+    var newArr = str.split("");
+    for (var i = 0; i < newArr.length; i++) {
+        if (hash[newArr[i]] === true) {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+vowelCounter2(theOdyssey, vowels); 
+
+// // // // // // // // // // / // //
+//Write a function called voweler that accepts a string, and returns an object with the keys being all the vowels in that string, and the values being how many times that particular vowel was in the string.
+// voweler("This is a test") --> {i: 2, a: 1, e: 1};
+
+function voweler(string) {
+    var res = {
+        a: 0,
+        e: 0,
+        i: 0,
+        o: 0,
+        u: 0
+    };
+
+    var strArr = string.toLowerCase().split('');
+    for (var i = 0; i < strArr.length; i++) {
+        if (strArr[i] === 'a') {
+            res.a++;
+        } else if (strArr[i] === 'e') {
+            res.e++;
+        } else if (strArr[i] === 'i') {
+            res.i++;
+        } else if (strArr[i] === 'o') {
+            res.o++;
+        } else if (strArr[i] === 'u') {
+            res.u++;
+        }
+    }
+    for (var vowel in res) {
+        if (res[vowel] === 0) {
+            delete res[vowel];
+        }
+    }
+    return res;
+}
+
+
