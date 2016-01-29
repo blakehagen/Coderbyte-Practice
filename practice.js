@@ -120,7 +120,7 @@ fizzBuzz();
 
 ////////////////////////////////////////
 
-// IS PALINDROME ?? Single word string //
+// IS PALINDROME - Single word string //
 
 function isPalindrome(word) {
     var reverseWord = word.split('').reverse().join('');
@@ -129,6 +129,17 @@ function isPalindrome(word) {
     }
     return false;
 };
+
+// remove whitespace and non-alphanumeric characters
+function palindrome(str) {
+    str = str.toLowerCase().replace(/[\W_]+/g, "");
+    var rev = str.toLowerCase().split('').reverse().join('');
+    if (str === rev) {
+        return true;
+    }
+    return false;
+}
+
 
 // // // // // // // //
 
@@ -430,5 +441,39 @@ function voweler(string) {
     }
     return res;
 }
+// // // // // // // // // // // // // //
+// Return Largest Numbers in Arrays
+
+function largestOfFour(arr) {
+    var res = [];
+    arr.map(function (e) {
+        var biggest = 0;
+        for (var i = 0; i < e.length; i++) {
+            if (e[i] > biggest) {
+                biggest = e[i];
+            }
+        }
+        res.push(biggest);
+
+    });
+    return res;
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+// // // // // // // // // // // //
+// Check if a string (first argument) ends with the given target string (second argument).
+
+function end(str, target) {
+    if (str.substr(-target.length) === target) {
+        return true;
+    }
+    return false;
+}
+
+end("Bastian", "n");
+
+// // // // // // // // // // // / //
+
 
 
