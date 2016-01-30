@@ -474,6 +474,201 @@ function end(str, target) {
 end("Bastian", "n");
 
 // // // // // // // // // // // / //
+//Repeat a given string (first argument) n times (second argument). Return an empty string if n is a negative number.
+function repeat(str, num) {
+    if (num < 0) {
+        return "";
+    }
+    var counter = 0;
+    var res = str;
+    for (var i = 1; i < num; i++) {
+        if (counter < num) {
+            res = res + str;
+            counter++;
+        }
+    }
+    return res;
+}
 
+repeat("abc", 3); // --> returns "abcabcabc"
 
+// // // // // // // //
+//Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a "..." ending.
+//Note that the three dots at the end add to the string length.
+//If the num is less than or equal to 3, then the length of the three dots is not added to the string length.
+function truncate(str, num) {
+    if (num === str.length || num > str.length) {
+        return str;
+    }
+    else if (num === 1) {
+        return str.slice(0, 1) + '...';
+    }
+    else if (num === 2) {
+        return str.slice(0, 2) + '...';
+    }
+    else {
+        return str.slice(0, num - 3) + '...';
+    }
+}
+
+truncate("A-tisket a-tasket A green and yellow basket", 11); 
+
+// /// // // // // // // /// // // /// // // // //
+//Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+function chunk(arr, size) {
+    var res = [];
+    var temp = [];
+    var mod = arr.length % size;
+
+    for (var i = 0; i < arr.length; i++) {
+        temp.push(arr[i]);
+        arr.splice(i, 1);
+        i--;
+
+        if (temp.length === size) {
+            res.push(temp);
+            temp = [];
+        }
+    }
+    if (temp.length === mod && mod !== 0) {
+        res.push(temp);
+    }
+    return res;
+}
+
+// // // // // // // //
+// Return the remaining elements of an array after chopping off n elements from the head.
+// The head meaning the beginning of the array, or the zeroth index
+function slasher(arr, howMany) {
+    if (howMany > arr.length) {
+        return [];
+    }
+    if (howMany === 0) {
+        return arr;
+    }
+    arr.splice(0, howMany);
+    return arr;
+}
+
+// // // // //
+// Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+function mutation(arr) {
+    var item1 = arr.splice(0, 1).toString().toLowerCase();
+    var item2 = arr.toString().toLowerCase().split('');
+
+    var res = item2.map(function (e) {
+        if (item1.indexOf(e) === -1) {
+            return false;
+        } else {
+            return true;
+        }
+    })
+
+    for (var i = 0; i < res.length; i++) {
+        if (res[i] === false) {
+            return false;
+        }
+    }
+    return true;
+}
+// // //// // // // // /// / // // // // // / //
+//Remove all falsy values from an array.
+function bouncer(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        if (!arr[i]) {
+            arr.splice(i, 1);
+            i--;
+        }
+    }
+    return arr;
+}
+// // // // // // // // // / // // // // //
+//You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+function destroyer(arr) {
+    var destroyers = [];
+    for (var arg in arguments) {
+        destroyers.push(arguments[arg]);
+    }
+    destroyers.splice(0, 1);
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < destroyers.length; j++) {
+            if (arr[i] === destroyers[j]) {
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+    }
+    return arr;
+}
+// // // // // // // // // // // // // // //
+// Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted.
+function where(arr, num) {
+    arr.push(num);
+    arr.sort(function (a, b) {
+        return a > b;
+    })
+    return arr.indexOf(num);
+}
+// // // // // // // /// // // // // // // //
+//One of the simplest and most widely known ciphers is a Caesar cipher, also known as a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount. A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus 'A' ↔ 'N', 'B' ↔ 'O' and so on. Write a function which takes a ROT13 encoded string as input and returns a decoded string. All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
+
+function rot13(str) {
+    str = str.split('');
+    var charCodes = str.map(function (e) {
+        if (e.charCodeAt(e) >= 65 && e.charCodeAt(e) <= 90) {
+            return e.charCodeAt(e) + 13;
+        } else {
+            return e.charCodeAt(e);
+        }
+    })
+    console.log(charCodes);
+    for (var i = 0; i < charCodes.length; i++) {
+        if (charCodes[i] > 90) {
+            charCodes[i] = 64 + (charCodes[i] - 90);
+        }
+    }
+    console.log(charCodes);
+    var res = charCodes.map(function (e) {
+        return String.fromCharCode(e);
+    })
+    return res.join('');
+}
+// // // // // // // // // // // // // / // // // //
+//We'll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them. The lowest number will not always come first.
+function sumAll(arr) {
+    var itemsToAdd = [];
+    arr = arr.sort(function (a, b) {
+        return a > b;
+    });
+    for (var i = arr[0]; i <= arr[1]; i++) {
+        itemsToAdd.push(i);
+    }
+    var sum = itemsToAdd.reduce(function (a, b) {
+        return a + b;
+    });
+    return sum;
+}
+// // // // // // // // // // // // // // / // // // //
+// Compare two arrays and return a new array with any items only found in one of the original arrays.
+function diff(arr1, arr2) {
+    var newArr = [];
+    for (var i = 0; i < arr1.length; i++) {
+        for (var j = 0; j < arr2.length; j++) {
+            if (arr1[i] === arr2[j]) {
+                arr1.splice(i, 1);
+                i--;
+                arr2.splice(j, 1);
+                j--;
+            }
+        }
+    }
+    console.log(arr1);
+    console.log(arr2);
+    newArr.push(arr1, arr2);
+
+    newArr = newArr.reduce(function (a, b) {
+        return a.concat(b);
+    });
+    return newArr;
+}
 
