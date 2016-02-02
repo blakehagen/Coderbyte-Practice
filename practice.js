@@ -671,4 +671,34 @@ function diff(arr1, arr2) {
     });
     return newArr;
 }
+// // // // // // // // // // // // // // // //
+// The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array. Base pairs are a pair of AT and CG. Match the missing element to the provided character. Return the provided character as the first element in each array. For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]] The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
+function pair(str) {
+    str = str.split('');
+    var res = str.map(function (e) {
+        return [e];
+    });
+    for (var i = 0; i < res.length; i++) {
+        if (res[i][0] === 'G') {
+            res[i].push('C');
+        } else if (res[i][0] === 'C') {
+            res[i].push('G');
+        } else if (res[i][0] === 'A') {
+            res[i].push('T');
+        } else if (res[i][0] === 'T') {
+            res[i].push('A');
+        }
+    }
+    return res;
+}
+// // // // // // /// // // // // // // // // // //
+// Check if a value is classified as a boolean primitive. Return true or false. Boolean primitives are true and false.
+function boo(bool) {
+    if (bool === true || bool === false) {
+        return true;
+    }
+    return false;
+}
+
+// // // / // // / // / //
 
