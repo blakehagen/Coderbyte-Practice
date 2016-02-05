@@ -701,4 +701,29 @@ function boo(bool) {
 }
 
 // // // / // // / // / //
+// CLOSURE EXAMPLE //
+//  Write a function called makeCounter that makes the following code work properly.
+/*
+  var count = makeCounter();
+  count() // 1
+  count() // 2
+  count() // 3
+  count() // 4
+  */
+  
+function makeCounter(){
+    var count = 0;
+    function add(){
+        count++;
+        return count;
+    }
+    return add;
+}
 
+var count = makeCounter();
+count() // --> 1
+count() // --> 2
+count() // --> 3
+count() // --> 4
+
+// // // // // // // // // // /// // /// /// // // // //
