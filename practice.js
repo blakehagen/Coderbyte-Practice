@@ -710,10 +710,10 @@ function boo(bool) {
   count() // 3
   count() // 4
   */
-  
-function makeCounter(){
+
+function makeCounter() {
     var count = 0;
-    function add(){
+    function add() {
         count++;
         return count;
     }
@@ -727,3 +727,29 @@ count() // --> 3
 count() // --> 4
 
 // // // // // // // // // // /// // /// /// // // // //
+// Constructor Function (sometimes called CLASS)
+
+function Car(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.distance = 0;
+    this.moveCarForward = function () {
+        this.distance += 10;
+        return this.distance;
+    }
+}
+
+var mustang = new Car('Ford', 'Mustang', 2016);
+var prius = new Car('Toyota', 'Prius', 2013);
+
+var getYear = function () {
+    return this.year;
+};
+// Above you're given the getYear function. Using your prius and mustang objects from above, use the proper syntax that will allow for you to call the getYear function with the prius then the mustang objects being the focal objects. *Don't add getYear as a property on both objects*.
+
+getYear.call(mustang);
+getYear.call(prius);
+
+//// // // // // // /// // // /// // // // // /// // // // // / // // // // // //
+
