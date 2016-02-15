@@ -727,7 +727,7 @@ count() // --> 3
 count() // --> 4
 
 // // // // // // // // // // /// // /// /// // // // //
-// Constructor Function (sometimes called CLASS)
+// Constructor Function (sometimes called CLASS??)
 
 function Car(make, model, year) {
     this.make = make;
@@ -752,4 +752,25 @@ getYear.call(mustang);
 getYear.call(prius);
 
 //// // // // // // /// // // /// // // // // /// // // // // / // // // // // //
+// Write a function that takes in a number and returns that number of the fibonacci sequence.
+// The Fibonacci sequence goes like this: 0,1,1,2,3,5...etc...
+// For example--> fibonacciNum(5) returns 3 (the 5th number in the sequence)
 
+function fibonacciNum(endNum) {
+    var sequence = [0, 1];
+    var secondLast = sequence[0];
+    var last = sequence[1];
+
+    for (var i = 0; i < endNum - 2; i++) {
+        var current = secondLast + last;
+        sequence.push(current);
+        secondLast = last;
+        last = current;
+    }
+    console.log(sequence);
+    return sequence[sequence.length - 1];
+}
+
+fibonacciNum(6) // --> returns 5
+
+// // // /// // // // /// // // // // // // // /// // / // // // / // / /
