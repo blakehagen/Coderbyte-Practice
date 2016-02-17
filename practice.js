@@ -774,3 +774,15 @@ function fibonacciNum(endNum) {
 fibonacciNum(6) // --> returns 5
 
 // // // /// // // // /// // // // // // // // /// // / // // // / // / /
+// Write a function that is given an array of numbers with one or more numbers missing from the sequence.
+// Return the missing numbers.
+
+function missingNum(array) {
+    var missing = [];
+    for (var i = 0; i < array.length; i++) {
+        if ((array[i + 1] - array[i]) > 1) {
+            missing.push(array[i + 1] - 1);
+        }
+    }
+    return missing;
+}
