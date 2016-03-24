@@ -30,14 +30,14 @@ firstFactorial(4);
 //Have the function longestWord(sen) take the sen parameter being passed and return the largest word in the string. If there are two or more words that are the same length, return the first word from the string with that length. Ignore punctuation and assume sen will not be empty. 
 
 function longestWord(str) {
-    var arr = str.replace(/[/`~\|!@#$%^&*)(_=+?'";:,.><]/g, "").split(" ");
+    var arr   = str.replace(/[/`~\|!@#$%^&*)(_=+?'";:,.><]/g, "").split(" ");
     var count = 0;
     var longest;
 
     for (var i = 0; i < arr.length; i++) {
         if (arr[i].length > count) {
             longest = arr[i];
-            count = arr[i].length;
+            count   = arr[i].length;
         }
     }
     return longest;
@@ -53,8 +53,8 @@ longestWord(str);
 //Have the function letterChanges(str) take the str parameter being passed and modify it using the following algorithm. Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string. 
 
 function letterChanges(str) {
-    str = str.toLowerCase();
-    var res = [];
+    str      = str.toLowerCase();
+    var res  = [];
     var code = 0;
     for (var i = 0; i < str.length; i++) {
         if (str.charCodeAt(i) >= 97 && str.charCodeAt(i) <= 121) {
@@ -132,7 +132,7 @@ function isPalindrome(word) {
 
 // remove whitespace and non-alphanumeric characters
 function palindrome(str) {
-    str = str.toLowerCase().replace(/[\W_]+/g, "");
+    str     = str.toLowerCase().replace(/[\W_]+/g, "");
     var rev = str.toLowerCase().split('').reverse().join('');
     if (str === rev) {
         return true;
@@ -149,7 +149,7 @@ function addOne(arrayOfNumbers) {
     var res = arrayOfNumbers.map(function (e) {
         return e + 1;
     })
-    res = res.reduce(function (a, b) {
+    res     = res.reduce(function (a, b) {
         return a + b;
     })
     return res;
@@ -185,7 +185,7 @@ function findInArray(arr, itemToFind) {
 //for each number in the given array, if it is even, it is added to the evens array, if the number is odd, is added to the odds array.
 
 var evens = [];
-var odds = []; 
+var odds  = [];
 
 //code here
 
@@ -196,11 +196,11 @@ function oddsAndEvens(numsArr) {
         } else {
             odds.push(e)
         }
-    })
+    });
     console.log(evens);
     console.log(odds);
     return [evens, odds];
-};
+}
 
 // // // // // // //
 
@@ -253,7 +253,7 @@ function longer(arr1, arr2) {
     } else if (arr2.length > arr1.length) {
         return arr2
     }
-}; 
+};
 
 // // // // // // // // //
 // Create a function called evenFinder that takes an array as an argument and returns an array with all of the odd numbers removed. 
@@ -285,7 +285,7 @@ function removeItem(myGroceryList, itemToRemove) {
     }
     return myGroceryList;
 }
-  
+
 //Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list. If the item is already in the grocery list, do not add it a second time. If it's not in the list, then add it and return the new list.
 
 //Code Here
@@ -306,7 +306,7 @@ function addItem(myGroceryList, itemToAdd) {
 var numbers = [5, '9', 16, 19, '25', '34', 48];
 
 //Code Here
-  
+
 function addTen(numbers) {
     var res = numbers.map(function (e) {
         return parseInt(e) + 10;
@@ -321,7 +321,7 @@ function looper(arr) {
     return arr.map(function (e) {
         return e + 5;
     })
-} 
+}
 
 // // // // // // // // / /// // //
 // Write a sum method which will work properly when invoked using either syntax below.
@@ -361,7 +361,7 @@ function longest(sentence) {
 var myPoem = 'What is a jQuery but a misunderstood object?';
 
 function capitalizeWords(sentence) {
-    var res = [];
+    var res     = [];
     var sentArr = sentence.split(' ');
     for (var i = 0; i < sentArr.length; i++) {
         res.push(sentArr[i].charAt(0).toUpperCase() + sentArr[i].slice(1));
@@ -374,7 +374,7 @@ function capitalizeWords(sentence) {
 var theOdyssey = "function expression or function declaration? Tis an obvious choice";
 
 function vowelCounter1(string) {
-    var arr = string.toLowerCase().split('');
+    var arr        = string.toLowerCase().split('');
     var vowelCount = 0;
     for (var i = 0; i < arr; i++) {
         if (arr[i] === 'a' || arr[i] === 'e' || arr[i] === 'i' || arr[i] === 'o' || arr[i] === 'u') {
@@ -396,7 +396,7 @@ var vowels = {
 
 function vowelCounter2(str, hash) {
     var counter = 0;
-    var newArr = str.split("");
+    var newArr  = str.split("");
     for (var i = 0; i < newArr.length; i++) {
         if (hash[newArr[i]] === true) {
             counter++;
@@ -405,7 +405,7 @@ function vowelCounter2(str, hash) {
     return counter;
 }
 
-vowelCounter2(theOdyssey, vowels); 
+vowelCounter2(theOdyssey, vowels);
 
 // // // // // // // // // // / // //
 //Write a function called voweler that accepts a string, and returns an object with the keys being all the vowels in that string, and the values being how many times that particular vowel was in the string.
@@ -480,7 +480,7 @@ function repeat(str, num) {
         return "";
     }
     var counter = 0;
-    var res = str;
+    var res     = str;
     for (var i = 1; i < num; i++) {
         if (counter < num) {
             res = res + str;
@@ -511,14 +511,14 @@ function truncate(str, num) {
     }
 }
 
-truncate("A-tisket a-tasket A green and yellow basket", 11); 
+truncate("A-tisket a-tasket A green and yellow basket", 11);
 
 // /// // // // // // // /// // // /// // // // //
 //Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
 function chunk(arr, size) {
-    var res = [];
+    var res  = [];
     var temp = [];
-    var mod = arr.length % size;
+    var mod  = arr.length % size;
 
     for (var i = 0; i < arr.length; i++) {
         temp.push(arr[i]);
@@ -613,7 +613,7 @@ function where(arr, num) {
 //One of the simplest and most widely known ciphers is a Caesar cipher, also known as a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount. A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus 'A' ↔ 'N', 'B' ↔ 'O' and so on. Write a function which takes a ROT13 encoded string as input and returns a decoded string. All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
 
 function rot13(str) {
-    str = str.split('');
+    str           = str.split('');
     var charCodes = str.map(function (e) {
         if (e.charCodeAt(e) >= 65 && e.charCodeAt(e) <= 90) {
             return e.charCodeAt(e) + 13;
@@ -637,7 +637,7 @@ function rot13(str) {
 //We'll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them. The lowest number will not always come first.
 function sumAll(arr) {
     var itemsToAdd = [];
-    arr = arr.sort(function (a, b) {
+    arr            = arr.sort(function (a, b) {
         return a > b;
     });
     for (var i = arr[0]; i <= arr[1]; i++) {
@@ -674,7 +674,7 @@ function diff(arr1, arr2) {
 // // // // // // // // // // // // // // // //
 // The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array. Base pairs are a pair of AT and CG. Match the missing element to the provided character. Return the provided character as the first element in each array. For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]] The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
 function pair(str) {
-    str = str.split('');
+    str     = str.split('');
     var res = str.map(function (e) {
         return [e];
     });
@@ -704,19 +704,21 @@ function boo(bool) {
 // CLOSURE EXAMPLE //
 //  Write a function called makeCounter that makes the following code work properly.
 /*
-  var count = makeCounter();
-  count() // 1
-  count() // 2
-  count() // 3
-  count() // 4
-  */
+ var count = makeCounter();
+ count() // 1
+ count() // 2
+ count() // 3
+ count() // 4
+ */
 
 function makeCounter() {
     var count = 0;
+
     function add() {
         count++;
         return count;
     }
+
     return add;
 }
 
@@ -730,10 +732,10 @@ count() // --> 4
 // Constructor Function (sometimes called CLASS??)
 
 function Car(make, model, year) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-    this.distance = 0;
+    this.make           = make;
+    this.model          = model;
+    this.year           = year;
+    this.distance       = 0;
     this.moveCarForward = function () {
         this.distance += 10;
         return this.distance;
@@ -741,7 +743,7 @@ function Car(make, model, year) {
 }
 
 var mustang = new Car('Ford', 'Mustang', 2016);
-var prius = new Car('Toyota', 'Prius', 2013);
+var prius   = new Car('Toyota', 'Prius', 2013);
 
 var getYear = function () {
     return this.year;
@@ -757,15 +759,15 @@ getYear.call(prius);
 // For example--> fibonacciNum(5) returns 3 (the 5th number in the sequence)
 
 function fibonacciNum(endNum) {
-    var sequence = [0, 1];
+    var sequence   = [0, 1];
     var secondLast = sequence[0];
-    var last = sequence[1];
+    var last       = sequence[1];
 
     for (var i = 0; i < endNum - 2; i++) {
         var current = secondLast + last;
         sequence.push(current);
         secondLast = last;
-        last = current;
+        last       = current;
     }
     console.log(sequence);
     return sequence[sequence.length - 1];
@@ -786,3 +788,85 @@ function missingNum(array) {
     }
     return missing;
 }
+
+// // // // // // // // // //
+// Write a function called loveTheThrees that takes in an array full of numbers. It should loop through the array and adds any numbers that are divisible by 3 to a new array called threes. Once you have added all the numbers that are divisible by 3 to the new array, then return the threes array.
+
+// Our sample array of numbers we will pass in when we test our function
+var numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// here is our function that takes in an array
+function loveTheThrees(arr) {
+    // declare a variable called 'threes' and set it as an empty array
+    var threes = [];
+    // loop through the array you pass in when you call the function
+    for (var i = 0; i < arr.length; i++) {
+        // if the item in the array is divisible by 3, push it into the threes array
+        if (arr[i] % 3 === 0) {
+            threes.push(arr[i]);
+        }
+    }
+    // return the threes array
+    return threes;
+}
+
+//invoke the function and pass in a real array of numbers. It should return an array with only multiples of 3
+loveTheThrees(numArr);
+
+// // // // /// /// /// // // // // // // // //
+// In the "superSecret" function “spy” will be a passed in as an object that represents a spy. Loop through all the properties on the spy object and change all values to the string “redacted”, then return the updated spy object.
+
+// here is our object we will pass into the function; notice it has actual data
+var myObject = {
+    name: 'Blake',
+    age: 33,
+    website: 'http://blakehagen.io',
+    address: 'Provo, UT'
+};
+
+// the function takes in an object
+function superSecret(object) {
+    // loop through the object
+    for (var item in object) {
+        // set each item to have the value of 'redacted'
+        object[item] = 'redacted';
+    }
+    // return the modified object
+    return object;
+}
+
+// invoke the function and pass in our object
+superSecret(myObject);
+
+// returns -->  { name: 'redacted', age: 'redacted', website: 'redacted', address: 'redacted' }
+
+// // // // // // // // /// // // /// // //
+// Make a function called onlyTruthy that takes in an object, loops through all its properties, and removes any that are falsy. Then return the object that was passed in. (hint: delete)
+// here is our object we will pass in
+//NOTE: falsy values include: '', false, null, undefined, 0, NaN
+var testObject = {
+    name: 'Blake',
+    age: false,
+    email: '',
+    address: 'Provo, UT',
+    kids: true,
+    height: undefined
+};
+
+// function that takes in an object
+function onlyTruthy(object) {
+    // loop through the object
+    for (var value in object){
+        // check to see if value of each property on object is falsy (the ! checks all of the falsy values)
+        if(!object[value]){
+            // if it is falsy, delete the property/value pair so you are only left with properties that have truthy
+            // values
+            delete object[value];
+        }
+    }
+    // return the modified object
+    return object;
+}
+// invoke the function and pass in our object we defined
+onlyTruthy(testObject);
+// returns --> { name: 'Blake', address: 'Provo, UT', kids: true }
