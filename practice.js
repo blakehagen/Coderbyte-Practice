@@ -1,4 +1,30 @@
-//Have the function firstReverse(str) take the str parameter being passed and return the string in reversed order. 
+//Write a function that accepts a function as it's first argument and returns a new function (which calls the original function that was passed in) that can only ever be executed once. Once completed, add a second argument that allows the function to be executed N number of times. After the function has been called N number of times, console.log('STAHHP');
+
+
+function hi() {
+  console.log('HELLO WORLD');
+};
+​
+function once(fn, num) {
+  var count = num || 1;
+  return function () {
+    if (count > 0) {
+      count--;
+      return fn();
+    } else {
+      console.log('STAHHHHP');
+    }
+  }
+};
+​
+var newFn = once(hi, 3);
+newFn();
+newFn();
+newFn();
+newFn();
+
+//////////////////////
+//Have the function firstReverse(str) take the str parameter being passed and return the string in reversed order.
 
 function firstReverse(str) {
   return str.split('').reverse().join('');
@@ -148,12 +174,12 @@ function palindrome(str) {
 function addOne(arrayOfNumbers) {
   var res = arrayOfNumbers.map(function (e) {
     return e + 1;
-  })
+  });
   res     = res.reduce(function (a, b) {
     return a + b;
-  })
+  });
   return res;
-};
+}
 // // //
 
 // EXPONENT //
@@ -250,10 +276,10 @@ for (var i = 0; i < num2; i++) {
 function longer(arr1, arr2) {
   if (arr1.length > arr2.length) {
     return arr1;
-  } else if (arr2.length > arr1.length) {
+  } else {
     return arr2
   }
-};
+}
 
 // // // // // // // // //
 // Create a function called evenFinder that takes an array as an argument and returns an array with all of the odd numbers removed. 
@@ -309,8 +335,8 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 
 function addTen(numbers) {
   var res = numbers.map(function (e) {
-    return parseInt(e) + 10;
-  })
+    return parseFloat(e) + 10;
+  });
   return res;
 }
 
@@ -355,6 +381,8 @@ function longest(sentence) {
   }
   return longestWord;
 }
+
+longest('I am the greatest.');
 
 // // // // // // // // / //
 //Write a function called capitalize that takes in the myPoem variable and capitalizes every word 
@@ -870,3 +898,55 @@ function onlyTruthy(object) {
 // invoke the function and pass in our object we defined
 onlyTruthy(testObject);
 // returns --> { name: 'Blake', address: 'Provo, UT', kids: true }
+
+// Create a function that takes in 2 numbers as parameters and returns the sum of the 2 numbers
+
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+// isPrime Function //
+function isPrime(num) {
+  if (num <= 2) {
+    return false;
+  }
+  for (var i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+// listPrimes uses the isPrime function to check to see if each number is prime //
+function listPrimes(numMax) {
+  var primeNumbers = [];
+  for (var i = 0; i <= numMax; i++) {
+    if (isPrime(i)) {
+      primeNumbers.push(i)
+    }
+  }
+  return primeNumbers;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
